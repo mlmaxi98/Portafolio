@@ -6,12 +6,15 @@ import {
     Typography
 } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
-    root: { flexGrow: 1 },
+    root: {
+        flexGrow: 1,
+        //zIndex: 10
+    },
     offset: theme.mixins.toolbar,
     title: { flexGrow: 1 },
 }))
 
-const Navbar = () => {
+export const Navbar = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
@@ -35,4 +38,3 @@ const Navbar = () => {
         </div>
     )
 }
-export default Navbar
