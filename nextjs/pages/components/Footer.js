@@ -20,11 +20,23 @@ const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
     title: {
         flexGrow: 1,
-        
+        fontFamily: [
+            'Press Start 2P',
+            '-apple-system',
+            'BlinkMacSystemFont',
+            '"Segoe UI"',
+            'Roboto',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+        ].join(',')
     },
 }))
 
-export const Navbar = () => {
+export const Footer = () => {
     const classes = useStyles()
     return (
         <div className={classes.root}>
@@ -33,11 +45,7 @@ export const Navbar = () => {
                     <Typography variant="h6" className={classes.title}>
                         Joaquín Maximiliano Cardozo
                     </Typography>
-                    <Button
-                        variant="outlined"
-                        color="secondary"
-                        className={classes.btnLink}
-                    >
+                    <Button variant="outlined" color="secondary">
                         Acerca de mi
                     </Button>
                     <Button variant="outlined" color="secondary">

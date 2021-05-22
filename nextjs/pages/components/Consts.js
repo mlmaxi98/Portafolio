@@ -10,7 +10,7 @@ export const myProjects = [
             'https://i.ibb.co/2M52hYV/ordenado.png',
             'https://i.ibb.co/4Vrp0RM/detalles.png'
         ],
-        languages: [],
+        languages: ['React.js', 'Redux.js', 'Node.js'],
     },
     {
         title: 'Tech Store',
@@ -22,11 +22,11 @@ export const myProjects = [
             'https://i.ibb.co/2M52hYV/ordenado.png',
             'https://i.ibb.co/4Vrp0RM/detalles.png'
         ],
-        languages: [],
+        languages: ['React.js', 'Redux.js', 'Node.js'],
     },
     {
         title: 'More Trips!',
-        subtitle: '',
+        subtitle: 'Henry Labs',
         description: `Aplicación creada con React, Redux y Styled Components para el Frontend. Esta aplicación consume
         datos de una base de datos que fueron cargados desde una API a través de un Backend creado con
         Express. Y sirve para buscar y mostrar datos de algún país del mundo, y poder crear actividades en
@@ -37,11 +37,11 @@ export const myProjects = [
             'https://i.ibb.co/2M52hYV/ordenado.png',
             'https://i.ibb.co/4Vrp0RM/detalles.png'
         ],
-        languages: [],
+        languages: ['React.js', 'Redux.js', 'Node.js'],
     },
     {
         title: 'Weather App',
-        subtitle: '',
+        subtitle: 'Henry Bootcamp',
         description: [
             'Los anchos de columna se aplican en todos los breakepoints (ej. xs y superiores).',
             'Los anchos de columna se aplican en todos los breakepoints (ej. xs y superiores).',
@@ -52,5 +52,6 @@ export const myProjects = [
             'https://i.ibb.co/2M52hYV/ordenado.png',
             'https://i.ibb.co/4Vrp0RM/detalles.png'
         ],
+        languages: ['React.js', 'Redux.js', 'Node.js'],
     },
 ]

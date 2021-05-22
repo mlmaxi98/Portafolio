@@ -1,74 +1,88 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core'
+import { Button, Chip, Grid, makeStyles, Typography } from '@material-ui/core'
 import { Fade } from 'react-reveal'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper'
-SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
+import Slider from './Slider'
+
 const useStyles = makeStyles(theme => ({
     container: {
-        background: theme.palette.secondary.light,
+        background: theme.palette.primary.dark,
+        margin: 'auto',
+        marginTop: '1rem',
         color: theme.palette.secondary.contrastText,
     },
+    info: {
+        padding: '2rem'
+    },
     image: {
-        width: '100%'
+        display: 'flex',
+        width: '100%',
+        height: '100%',
     }
 }))
-const Card = ({ flag, content }) => {
+export const Project = ({ flag, content }) => {
     const classes = useStyles()
     return (
-        <Fade left={flag} right={!flag}>
-            <Grid
-                container
-                direction={flag ? "row" : "row-reverse"}
-                justify="space-around"
-                alignItems="center"
-                spacing={3}
-            >
-                <Grid item xs={5}>
-                    <Swiper
-                        navigation
-                        pagination={false}
-                        autoHeight={false}
-                        loop
-                        effect="fade"
-                        grabCursor
-                        autoplay={{
-                            "delay": 2500,
-                            "disableOnInteraction": false
-                        }}
-                    >
-                        {content.images.map(image =>
-                            <SwiperSlide>
-                                <img
-                                    src={image}
-                                    alt='This is a image'
-                                    className={classes.image}
-                                />
-                            </SwiperSlide>)
-                        }
-                    </Swiper>
-                </Grid>
-                <Grid item xs={5}>
-                    <Grid container direction="column" justify="space-around" alignItems="center" spacing={3}>
-                        <Grid item xs>
-                            <Typography variant="h6">{content.title}</Typography>
-                        </Grid>
-                        <Grid item xs>
-                            <Typography variant="body1">
-                                {content.description}
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
+        <Grid
+            className={classes.container}
+            container
+            direction={flag ? "row" : "row-reverse"}
+            justify="space-between"
+            alignItems="stretch"
+            xs={11}
+        >
+            <Grid item xs={12} sm={6}>
+                {/*<img src={content.images[0]} alt='' className={classes.image} />*/}
+                <Slider images={content.images} classes={classes} />
             </Grid>
-        </Fade>
+            <Grid item xs={12} sm={6}>
+                <Fade left={flag} right={!flag}>
+                    <Grid
+                        container
+                        direction="column"
+                        justify="space-around"
+                        alignItems="center"
+                        spacing={2}
+                        className={classes.info}
+                    >
+                        <Fade>
+                            <Grid
+                                item
+                                xs
+                            >
+                                <Typography variant="h4">{content.title}</Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs
+                                className={classes.info}
+                            >
+                                <Typography variant="h6">{content.subtitle}</Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs
+                                className={classes.info}
+                            >
+                                <Typography variant="body1">
+                                    {content.description}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs>
+                                <Typography variant="body1">
+                                    {
+                                        content.languages.map(lang =>
+                                            <Chip
+                                                color="secondary"
+                                                label={lang}
+                                            />
+                                        )
+                                    }
+                                </Typography>
+                            </Grid>
+                        </Fade>
+                    </Grid>
+                </Fade>
+            </Grid>
+        </Grid>
     )
 }
-export const Project = (props) => {
-    const classes = useStyles()
-    return (
-        <div className={classes.container} >
-            <Card flag={props.flag} content={props.content} />
-        </div>
-    )
 
-}
