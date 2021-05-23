@@ -35,9 +35,16 @@ export const myProjects = [
         images: [
             'https://i.ibb.co/NrKRRht/Countries-APP-images.png',
             'https://i.ibb.co/2M52hYV/ordenado.png',
-            'https://i.ibb.co/4Vrp0RM/detalles.png'
+            // 'https://i.ibb.co/4Vrp0RM/detalles.png'
         ],
-        languages: ['React.js', 'Redux.js', 'Node.js'],
+        languages: [
+            'React.js',
+            'Redux.js',
+            'Node.js',
+            'Sequelize',
+            'PostgreSQL',
+            'Styled - Components'
+        ],
     },
     {
         title: 'Weather App',

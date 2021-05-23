@@ -31,7 +31,7 @@ export const About = () => {
             </Grid>
 
             <Grid item xs={10} sm={6}>
-                <Typography variant="Habilidades " align="center" gutterBottom>
+                <Typography variant="body1" align="center" gutterBottom>
                     Algunas columnas tienen varios anchos definidos, causando que el layout cambie en el correspondiente breakpoint definido.
                 </Typography>
             </Grid>

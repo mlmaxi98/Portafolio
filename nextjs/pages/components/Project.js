@@ -1,4 +1,4 @@
-import { Button, Chip, Grid, makeStyles, Typography } from '@material-ui/core'
+import { Chip, Grid, makeStyles, Typography } from '@material-ui/core'
 import { Fade } from 'react-reveal'
 import Slider from './Slider'
 
@@ -10,12 +10,15 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.secondary.contrastText,
     },
     info: {
-        padding: '2rem'
+        //padding: '0.5rem'
     },
     image: {
         display: 'flex',
         width: '100%',
         height: '100%',
+    },
+    lang: {
+        margin: '0.25rem'
     }
 }))
 export const Project = ({ flag, content }) => {
@@ -27,10 +30,10 @@ export const Project = ({ flag, content }) => {
             direction={flag ? "row" : "row-reverse"}
             justify="space-between"
             alignItems="stretch"
-            xs={11}
+            xs={12}
         >
             <Grid item xs={12} sm={6}>
-                {/*<img src={content.images[0]} alt='' className={classes.image} />*/}
+                {/* <img src={content.images[0]} alt='' className={classes.image} /> */}
                 <Slider images={content.images} classes={classes} />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -41,12 +44,12 @@ export const Project = ({ flag, content }) => {
                         justify="space-around"
                         alignItems="center"
                         spacing={2}
-                        className={classes.info}
                     >
                         <Fade>
                             <Grid
                                 item
                                 xs
+                                className={classes.info}
                             >
                                 <Typography variant="h4">{content.title}</Typography>
                             </Grid>
@@ -66,23 +69,26 @@ export const Project = ({ flag, content }) => {
                                     {content.description}
                                 </Typography>
                             </Grid>
-                            <Grid item xs>
-                                <Typography variant="body1">
-                                    {
-                                        content.languages.map(lang =>
-                                            <Chip
-                                                color="secondary"
-                                                label={lang}
-                                            />
-                                        )
-                                    }
-                                </Typography>
+                            <Grid
+                                item
+                                xs
+                                className={classes.info}
+                            >
+                                {
+                                    content.languages.map(lang =>
+                                        <Chip
+                                            color="secondary"
+                                            label={lang}
+                                            className={classes.lang}
+                                        />
+                                    )
+                                }
                             </Grid>
                         </Fade>
                     </Grid>
                 </Fade>
             </Grid>
-        </Grid>
+        </Grid >
     )
 }
 

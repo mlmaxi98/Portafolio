@@ -1,11 +1,12 @@
-import { About, Navbar, Project, myProjects } from './components'
+import { About, Navbar, Projects } from './components'
 import { Fade } from 'react-reveal'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, useMediaQuery } from '@material-ui/core'
 const useStyles = makeStyles(theme => ({
   container: {
     //minHeight: '100vh',
     background: theme.palette.primary.light,
     color: theme.palette.secondary.contrastText,
+
   },
 }))
 const index = () => {
@@ -14,11 +15,9 @@ const index = () => {
     <div className={classes.container}>
       <Navbar />
       <About />
-      {
-        myProjects.map((project, i) => (
-          <Project key={i} flag={i % 2 === 1 ? true : false} content={project} />
-        ))
-      }
+      <Projects />
+      {/* <ContactMe /> */}
+      {/* <Footer /> */}
     </div>
   )
 }

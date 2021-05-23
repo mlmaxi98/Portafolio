@@ -1,5 +1,4 @@
 export { About } from './About'
 export { Navbar } from './Navbar'
-export { Project } from './Project'
 export { Footer } from './Footer'
-export { myProjects } from './Consts'
+export { Projects } from './Projects'

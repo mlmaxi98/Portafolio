@@ -4,20 +4,20 @@ SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
 const Slider = ({ images, classes }) => {
     return (
         <Swiper
-            navigation
+            navigation={false}
             pagination={false}
             autoHeight={false}
             loop
             effect="fade"
             grabCursor
-        //autoplay={{ "delay": 2500, "disableOnInteraction": false }}
+            autoplay={{ "delay": 2500, "disableOnInteraction": false }}
         >
             {
-                images.map(image =>
-                    <SwiperSlide>
+                images.map((image, i) =>
+                    <SwiperSlide key={i}>
                         <img
                             src={image}
-                            alt='This is a image'
+                            alt="This is a image"
                             className={classes.image}
                         />
                     </SwiperSlide>)
