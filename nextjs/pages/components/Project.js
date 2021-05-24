@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
         margin: 'auto',
         marginTop: '1rem',
         color: theme.palette.secondary.contrastText,
+        height: '100%'
     },
     info: {
         //padding: '0.5rem'
@@ -27,60 +28,60 @@ export const Project = ({ flag, content }) => {
         <Grid
             className={classes.container}
             container
-            direction={flag ? "row" : "row-reverse"}
+            direction={!flag ? "row" : "row-reverse"}
             justify="space-between"
-            alignItems="stretch"
-            xs={12}
+            xs
         >
             <Grid item xs={12} sm={6}>
-                {/* <img src={content.images[0]} alt='' className={classes.image} /> */}
-                <Slider images={content.images} classes={classes} />
+                <Fade left={flag} right={!flag}>
+                    <Slider
+                        images={content.images}
+                        classes={classes}
+                    />
+                </Fade>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <Fade left={flag} right={!flag}>
+                <Fade left={!flag} right={flag}>
                     <Grid
                         container
                         direction="column"
-                        justify="space-around"
-                        alignItems="center"
+                        justify="space-between"
+                        alignItems="stretch"
                         spacing={2}
                     >
                         <Fade>
-                            <Grid
-                                item
-                                xs
-                                className={classes.info}
-                            >
-                                <Typography variant="h4">{content.title}</Typography>
+                            <Grid item xs>
+                                <Typography variant="h4">
+                                    {content.title}
+                                </Typography>
                             </Grid>
-                            <Grid
-                                item
-                                xs
-                                className={classes.info}
-                            >
+                            <Grid item xs>
                                 <Typography variant="h6">{content.subtitle}</Typography>
                             </Grid>
-                            <Grid
-                                item
-                                xs
-                                className={classes.info}
-                            >
+                            <Grid item xs>
                                 <Typography variant="body1">
                                     {content.description}
                                 </Typography>
                             </Grid>
                             <Grid
                                 item
+                                container
+                                justify="space-around"
                                 xs
-                                className={classes.info}
                             >
                                 {
                                     content.languages.map(lang =>
-                                        <Chip
-                                            color="secondary"
-                                            label={lang}
-                                            className={classes.lang}
-                                        />
+                                        <Grid
+                                            item
+                                            container
+                                            justify="center"
+                                            xs
+                                        >
+                                            <Chip
+                                                color="secondary"
+                                                label={lang}
+                                            />
+                                        </Grid>
                                     )
                                 }
                             </Grid>
