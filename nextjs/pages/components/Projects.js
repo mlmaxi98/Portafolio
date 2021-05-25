@@ -5,7 +5,9 @@ const useStyles = makeStyles(theme => ({
     container: {
         background: theme.palette.primary.light,
         color: theme.palette.secondary.contrastText,
-        height: '100%'
+        height: '100%',
+        margin: '0 auto',
+        marginTop: '1rem',
     },
     image: {
         display: 'flex',
@@ -18,18 +20,18 @@ export const Projects = () => {
     return (
         <Grid
             container
-            direction="row"
+            className={styles.container}
+            direction="column"
             justify="center"
-            //alignItems="stretch"
-            xs={12}
-            //spacing={2}
+            alignItems="stretch"
+            xs={11}
+        //spacing={2}
         >
             {
                 myProjects.map((project, i) => (
                     <Grid
                         item
                         container
-                        //md={6}
                         xs={12}
                         //spacing={8}
                         className={styles.container}
@@ -43,6 +45,6 @@ export const Projects = () => {
                     </Grid>
                 ))
             }
-        </Grid >
+        </Grid>
     )
 }

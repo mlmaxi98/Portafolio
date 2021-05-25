@@ -13,16 +13,16 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         height: '100%',
     },
+    chip: {
+        margin:theme.spacing(0.5)
+    }
 }))
 export const Project = ({ flag, content }) => {
     const styles = useStyles()
     return (
         <>
             <Grid item xs={12} sm={6}>
-                <Fade
-                //left={flag}
-                //right={!flag}
-                >
+                <Fade>
                     <Slider
                         images={content.images}
                         classes={styles}
@@ -37,48 +37,32 @@ export const Project = ({ flag, content }) => {
                 alignItems="stretch"
                 xs={12}
                 sm={6}
-            //spacing={2}
             >
-                <Grid item xs>
-                    <Typography variant="h4">
-                        <Fade
-                        //left={!flag}
-                        //right={flag}
-                        >
-                            {content.title}
-                        </Fade>
+                <Fade>
+
+                    <Typography variant="h4" gutterBottom>
+                        {content.title}
                     </Typography>
-                </Grid>
-                <Grid item xs>
-                    <Typography variant="h6">{content.subtitle}</Typography>
-                </Grid>
-                <Grid item xs>
-                    <Typography variant="body1">
+                    <Typography variant="h6" gutterBottom>
+                        {content.subtitle}
+                    </Typography>
+                    <Typography variant="body1" gutterBottom>
                         {content.description}
                     </Typography>
-                </Grid>
-                <Grid
-                    item
-                    container
-                    justify="space-around"
-                    xs
-                >
-                    {
-                        content.languages.map(lang =>
-                            <Grid
-                                item
-                                container
-                                justify="center"
-                                xs
-                            >
+                    <div>
+                        {
+                            content.languages.map((lang) =>
                                 <Chip
-                                    color="secondary"
+                                    key={lang}
                                     label={lang}
+                                    className={styles.chip}
+                                    size="small"
+                                    variant="outlined"
                                 />
-                            </Grid>
-                        )
-                    }
-                </Grid>
+                            )
+                        }
+                    </div>
+                </Fade>
             </Grid>
         </>
     )
