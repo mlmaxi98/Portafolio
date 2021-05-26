@@ -1,7 +1,19 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { makeStyles } from '@material-ui/core'
+
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper'
 SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade])
-const Slider = ({ images, classes }) => {
+const useStyles = makeStyles(theme => ({
+    container: {
+    },
+    image: {
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+    }
+}))
+const Slider = ({ images }) => {
+    const styles = useStyles()
     return (
         <Swiper
             navigation={false}
@@ -18,7 +30,7 @@ const Slider = ({ images, classes }) => {
                         <img
                             src={image}
                             alt="This is a image"
-                            className={classes.image}
+                            className={styles.image}
                         />
                     </SwiperSlide>)
             }

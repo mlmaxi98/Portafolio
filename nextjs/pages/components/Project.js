@@ -1,67 +1,45 @@
-import { Chip, Grid, makeStyles, Typography } from '@material-ui/core'
+import { Box, Chip, Grid, makeStyles, Typography } from '@material-ui/core'
 import { Fade } from 'react-reveal'
 import Slider from './Slider'
 
 const useStyles = makeStyles(theme => ({
-    container: {
-        background: theme.palette.primary.light,
-        color: theme.palette.secondary.contrastText,
-        height: '100%'
-    },
-    image: {
-        display: 'flex',
-        width: '100%',
-        height: '100%',
-    },
     chip: {
-        margin:theme.spacing(0.5)
+        margin: theme.spacing(0.5),
     }
 }))
-export const Project = ({ flag, content }) => {
+export const Project = ({ content }) => {
     const styles = useStyles()
     return (
         <>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={5}>
                 <Fade>
-                    <Slider
-                        images={content.images}
-                        classes={styles}
-                    />
+                    <Slider images={content.images} />
                 </Fade>
             </Grid>
-            <Grid
-                item
-                container
-                direction="column"
-                justify="space-between"
-                alignItems="stretch"
-                xs={12}
-                sm={6}
-            >
+            <Grid item xs={12} sm={7} >
+                <Typography variant="h4" gutterBottom>
+                    <Fade>{content.title}</Fade>
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                    {content.subtitle}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    {content.description}
+                </Typography>
                 <Fade>
-
-                    <Typography variant="h4" gutterBottom>
-                        {content.title}
-                    </Typography>
-                    <Typography variant="h6" gutterBottom>
-                        {content.subtitle}
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        {content.description}
-                    </Typography>
-                    <div>
+                    <Box>
                         {
                             content.languages.map((lang) =>
                                 <Chip
                                     key={lang}
                                     label={lang}
                                     className={styles.chip}
+                                    color="primary"
                                     size="small"
-                                    variant="outlined"
                                 />
                             )
                         }
-                    </div>
+                    </Box>
                 </Fade>
             </Grid>
         </>
